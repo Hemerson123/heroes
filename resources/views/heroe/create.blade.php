@@ -1,4 +1,4 @@
-@extends('layouts.plantilla')
+@extends('layouts.app')
 
 @section('content')
 
@@ -20,18 +20,22 @@
 		<input type="text" name="titulo" class="form-control" required>
 		</div>
 
-		<div class="form-row">
+		<div class="form-row ">
 		<label>Descripcion</label>
-		<input type="text" name="descripcion" class="form-control" required>
+		<textarea name="descripcion" class="form-control" rows="4" required>
+		</textarea>
+		
 
 		<div class="form-row">
-		<label>Imagen   </label>
-		<input type="file" name="imagen" class="form-control-fle">
+		<label class="mt-4 mr-4">Imagen   </label>
+		<input type="file" name="imagen" class="form-control-fle mt-4 mr-4">
 
 		</div>
 
 		<div>
-			<button type="submit" class="myButton mb-2" >Enviar</button>
+			<button type="submit" class="myButton mt-2 ml-4" >
+				<i class="fas fa-share icono1"></i>
+			</button>
 		
 	</form>
 	</div>

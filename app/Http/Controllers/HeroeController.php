@@ -17,9 +17,8 @@ class HeroeController extends Controller
     public function index()
     {
        
- $heroes = heroe::all();
-        return view('heroe.index')->with(['heroes'=>$heroes]);
-        
+        $heroes = heroe::all();
+        return view('heroe.index')->with(['heroes'=>$heroes]);    
 
     }
 
@@ -44,20 +43,20 @@ class HeroeController extends Controller
     {
        //$heroe = heroe::create($request -> all());
 
-        $request ->validate();
+        $request ->validated();
         $datos= $request-> all();
 
-        if($request ->file('imagen')
-    ){
-            $archivo = ($request ->file('imagen'));
+        if($request ->file('imagen')){
+            $archivo = $request-> file('imagen');
             $nombrearchivo = $archivo -> getClientOriginalName();
-            $archivo ->move(public_path('IMG'), $nombrearchivo);
-            $datos['imagen'] = 'IMG/'. $nombrearchivo;
+            $archivo ->move(public_path('img'), $nombrearchivo);
+            $datos['imagen'] = 'img/'. $nombrearchivo;
         }
 
             $heroe = heroe::create ($datos);
 
-        return Redirect()->route('heroes.index');
+        return redirect()->route('heroes.index')
+        ->withSuccess("El heroe con id {$heroe->id} se ha creado");
         
     }
 
@@ -101,8 +100,8 @@ class HeroeController extends Controller
     {
             $archivo = ($request ->file('imagen'));
             $nombrearchivo = $archivo -> getClientOriginalName();
-            $archivo ->move(public_path('IMG'), $nombrearchivo);
-            $datos['imagen'] = 'IMG/'. $nombrearchivo;
+            $archivo ->move(public_path('img'), $nombrearchivo);
+            $datos['imagen'] = 'img/'. $nombrearchivo;
             File::delete($heroe->imagen);
         }
         
@@ -111,7 +110,8 @@ class HeroeController extends Controller
         $heroe-> update($datos);
 
             
-        return Redirect() ->route('heroes.index');
+        return Redirect() ->route('heroes.index')
+        ->withSuccess("El heroe con id {$heroe->id} se ha actualizado");
 
 
 
@@ -128,7 +128,8 @@ class HeroeController extends Controller
     {
        $heroe->delete();
 
-        return Redirect() ->route('heroes.index');
+        return Redirect() ->route('heroes.index')
+        ->withSuccess("El heroe con id {$heroe->id} se ha eliminado");
         //
     }
 }

@@ -8,12 +8,30 @@
     <!-- Bootstrap CSS -->
     
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<link rel="stylesheet" href={{asset('css/estilos.css')}}>
+<link rel="stylesheet" href={{asset('css/app.css')}}>
+<link rel="stylesheet" href="{{asset('css/estilos.css')}}">
 
     <title>Hello, world!</title>
   </head>
   <body>
+
   	<div class="container ">
+
+       <div class="py-4">
+                @if(session()->has('success'))
+                    <div class="alert alert-success">
+                        {{ session()->get('success') }}
+                    </div>
+                @endif
+
+                @if(isset($errors) && $errors->any())
+                    <div class="alert alert-danger">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </div>
+                @endif
+            </div>
 
   		<a href="{{ route('home') }}" class="text-decoration-none text-dark">
 

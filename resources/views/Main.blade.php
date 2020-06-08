@@ -1,4 +1,4 @@
-@extends('layouts.plantilla')
+@extends('layouts.app')
 
 @section('content')
 
@@ -13,7 +13,7 @@
 
 		<img src="{{asset($heroe->imagen)}}"alt="imagen de {{$heroe ->nombre}}" class ="card-img-top rounded rounded-circle">
 
-		<div class="card-body ">
+		<div class="card-body text-light">
 
 			<h4 class="card-title">{{$heroe -> nombre}}</h4>
 			<p class="card-text">{{ $heroe -> titulo}}</p>

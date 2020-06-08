@@ -7,29 +7,27 @@ body{
 .card-footer{
 	background-color: none;
 	border: nome;
-}
-.card-body{
-	color:white;
+
 }
 
 .btn-primary {
     color: #000000;
-    background-color: #f4f2f2 !Important;;
-    border-color: #a8a3a3 !Important;;
+    background-color: #f4f2f2 !Important;
+    border-color: #a8a3a3 !Important;
 }
 
 .btn-primary:hover {
-    background-color: #a8a3a3 !Important;;
+    background-color: #a8a3a3 !Important;
    
 }
 
 .btn-primary:focus {
-    background-color: #a8a3a3 !Important;;
+    background-color: #a8a3a3 !Important;
   box-shadow:  0 0 0 0.2rem rgba(209,196,175,.5) !Important;
 }
 @media (min-width: 555px){
 	.img-heroe{
-		max-width: 80%
+		max-width: 80%;
 	}
 }
 .myButton {
@@ -53,8 +51,19 @@ body{
 	top:1px;
 }
 
-<a href="#" class="myButton">light red</a>
 
 
+.icono{
+font-size: 2rem;
+color: black;}
 
+.icono1{
+	font-size: 2rem;
+color: white;}
+}
+
+.icono2{
+	font-size: 2rem;
+color: red;}
+}
         

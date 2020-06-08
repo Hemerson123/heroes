@@ -1,10 +1,10 @@
-@extends('layouts.plantilla')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
 	<h1>Lista de Villanos</h1>
 
-	<a href= "{{route("heroes.create")}}" class="myButton">Crear</a>
+	<a href= "{{route('heroes.create')}}" class="myButton m-3">Crear</a>
 
 
 	<div class="table-responsive shadow">
@@ -29,12 +29,17 @@
 	<td>{{$heroe ->imagen}}</td>
 	<td>
 		<a href="{{route('heroes.edit',['heroe'=> $heroe->id])}}" class="myButton d-block text-center mb-2">
-			Editar
+			<i class="fas fa-edit icono2"></i>
 		</a>
 		<form method="POST" class="d-inline" action="{{route('heroes.destroy',['heroe'=>$heroe->id])}}">
 			@csrf
 			@method('DELETE')
-			<button type="submit" class="myButton d-block text-center mb-2">Eliminar</button>
+			<button type="submit" class="myButton d-block text-center mb-2"onclick="return confirm('¿Seguro que quieres elimarlo? text-dark')">
+
+			<i class="fas fa-trash-alt icono"></i>
+
+		</button>
+
 		</form>
 	</td>
 </tr>

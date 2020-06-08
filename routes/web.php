@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'MainController@index')->name('home');
+Route::get('/', 'MainController@index')->name('myhome');
 
 
 Route::get('heroe/{heroe}', 'MainController@show')->name('heroe');
@@ -28,3 +28,7 @@ Route::delete('heroes/{heroe}','HeroeController@destroy')->name('heroes.destroy'
 Route::get('heroes/{heroe}/edit','HeroeController@edit')->name('heroes.edit');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
