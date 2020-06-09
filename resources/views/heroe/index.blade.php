@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-	<h1>Lista de Villanos</h1>
+	<h1 class="text-center">LISTA DE VILLANOS</h1>
 
 	<a href= "{{route('heroes.create')}}" class="myButton m-3">Crear</a>
 
@@ -11,22 +11,22 @@
 		<table class="table-striped border">
 			<thead class="thead-light">
 				<tr>
-				<th class="text-center">ID</th>
-				<th class="text-center">Nombre</th>
-				<th class="text-center">Titulo</th>
-				<th class="text-center">Descripcion</th>
-				<th class="text-center">Imagen</th>
-				<th class="text-center">Acciones</th>
+				<th class=" d-none text-center d-md-table-cell">ID</th>
+				<th class="  text-center">Nombre</th>
+				<th class=" d-none text-center d-md-table-cell">Titulo</th>
+				<th class=" d-none text-center d-md-table-cell">Descripcion</th>
+				<th class=" d-none text-center d-md-table-cell">Imagen</th>
+				<th class=" d-none text-center d-md-table-cell">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
 				@foreach($heroes as $heroe)
 <tr>
-	<td>{{$heroe ->id}}</td>
+	<td class="d-none d-md-table-cell">{{$heroe ->id}}</td>
 	<td>{{$heroe ->nombre}}</td>
-	<td>{{$heroe ->titulo}}</td>
-	<td>{{$heroe ->descripcion}}</td>
-	<td>{{$heroe ->imagen}}</td>
+	<td class="d-none d-md-table-cell">{{$heroe ->titulo}}</td>
+	<td class="d-none d-md-table-cell">{{$heroe ->descripcion}}</td>
+	<td class="d-none d-md-table-cell">{{$heroe ->imagen}}</td>
 	<td>
 		<a href="{{route('heroes.edit',['heroe'=> $heroe->id])}}" class="myButton d-block text-center mb-2">
 			<i class="fas fa-edit icono2"></i>
